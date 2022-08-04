@@ -4,16 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
+using Kino;
 
 public class ZombieAi : MonoBehaviour
 {
+    public AnalogGlitch analogGlitch;
     NavMeshAgent nav;
     Animator anim;
     public Transform target;
     public Transform player;
-    public float dirChangeInterval; // 방향전환 빈도
     public bool isFollowingPlayer;
-    
     Vector3 point;
     public float range = 10;
 
@@ -34,7 +34,7 @@ public class ZombieAi : MonoBehaviour
             {
                 target.transform.position = point;
             }
-            nav.SetDestination(target.transform.position);
+            nav.SetDestination(target.position);
         }
     }
 
@@ -53,23 +53,34 @@ public class ZombieAi : MonoBehaviour
         result = Vector3.zero;
         return false;
     }
+
     private void Evnets()
     {
         EventManager.instance.AddEvent("PlayerInZombieArea", p =>
         {
             isFollowingPlayer = true;
             anim.SetBool("isFollowingPlayer", true);
-            nav.speed = 3f;
-            nav.SetDestination(player.position);
-            StopCoroutine(ZombieRndMove());
+            nav.speed = 2f;
+            target.position = player.position;
+            analogGlitch.scanLineJitter = .3f;
+            analogGlitch.colorDrift = .1f;
+
         });
+
         EventManager.instance.AddEvent("PlayerOutZombieArea", p =>
         {
             isFollowingPlayer = false;
             anim.SetBool("isFollowingPlayer", false);
             nav.speed = .5f;
-            nav.SetDestination(player.position);
-            StartCoroutine(ZombieRndMove());
+            EventManager.instance.SendEvent("EnabledCrossSfx");
+            analogGlitch.scanLineJitter = 0f;
+            analogGlitch.colorDrift = 0f;
+
         });
+    }
+
+    private void Update()
+    {
+        nav.SetDestination(target.position);
     }
 }

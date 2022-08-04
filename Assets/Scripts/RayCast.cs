@@ -7,7 +7,6 @@ public class RayCast : MonoBehaviour
 {
     public Transform playerCam;
     RaycastHit hit;
-    public GameObject hitObj;
     public Text txtInteract;
     public bool isDoorClosed = true;
 

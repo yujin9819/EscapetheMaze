@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Info
+  - CrossZombie
   layers:
   - Default
   - TransparentFX
