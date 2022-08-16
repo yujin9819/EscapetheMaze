@@ -10,7 +10,6 @@ public class Buttons : MonoBehaviour
 
     public void Return()
     {
-        //Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Locked;
         pauseUI.SetActive(false);
         Time.timeScale = 1;
@@ -26,5 +25,10 @@ public class Buttons : MonoBehaviour
     {
         setting.SetActive(false);
         pause.SetActive(true);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }
