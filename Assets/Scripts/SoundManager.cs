@@ -9,6 +9,13 @@ public class SoundManager : MonoBehaviour
     public AudioSource walkSound;
     public AudioSource crossZombie;
 
+    public void SetVolume(float volume)
+    {
+        BGM.volume = volume;
+        walkSound.volume = volume;
+        crossZombie.volume = volume;
+    }
+
     private void Start()
     {
         BGMPlayer();

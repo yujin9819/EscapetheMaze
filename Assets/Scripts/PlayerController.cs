@@ -33,6 +33,11 @@ public class PlayerController : MonoBehaviour
         Events();
     }
 
+    public void MouseSpeed(float c)
+    {
+        mouseSpeed = c;
+    }
+
     private void Events()
     {
         EventManager.instance.AddEvent("Reset", p =>
@@ -46,8 +51,6 @@ public class PlayerController : MonoBehaviour
         Movement();
         CameraRotate();
 
-        Cursor.visible = false;                     
-        Cursor.lockState = CursorLockMode.Locked;
 
         //if (Input.GetAxis("Vertical") != 0 && Input.GetAxis("Horizontal") != 0)
         //{

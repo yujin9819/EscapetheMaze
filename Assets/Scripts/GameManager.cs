@@ -12,8 +12,13 @@ public class GameManager : MonoBehaviour
     public GameObject exit;
     public GameObject gem;
 
+    public GameObject pauseUI;
+
     private void Start()
     {
+        //Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
         Events();
     }
 
@@ -28,6 +33,7 @@ public class GameManager : MonoBehaviour
             c.name = "Gem";
             exit.SetActive(false);
         });
+        EventManager.instance.AddEvent("Return", p => pauseUI.SetActive(false));
     }
 
     private void Update()
@@ -36,6 +42,14 @@ public class GameManager : MonoBehaviour
         if (gemCnt == gemMaxCnt)
         {
             exit.SetActive(true);
+        }
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            //Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            Time.timeScale = 0;
+            pauseUI.SetActive(true);
         }
     }
 }
