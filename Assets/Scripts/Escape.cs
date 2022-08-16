@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Escape : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class Escape : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("탈출에 성공했다");
+            SceneManager.LoadScene("GameClear");
         }
     }
 }

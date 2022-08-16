@@ -9,6 +9,7 @@ public class RayCast : MonoBehaviour
     RaycastHit hit;
     public Text txtInteract;
     public bool isDoorClosed = true;
+    public GameObject gemUI;
 
     void Update()
     {
@@ -24,6 +25,7 @@ public class RayCast : MonoBehaviour
                     {
                         EventManager.instance.SendEvent("DoorOpen");
                         isDoorClosed = false;
+                        gemUI.SetActive(true);
                         //hitObj = null;
                     }
                 }

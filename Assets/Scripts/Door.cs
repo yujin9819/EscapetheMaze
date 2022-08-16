@@ -19,5 +19,9 @@ public class Door : MonoBehaviour
             anim.SetBool("isDoorOpen", true);
         });
 
+        //EventManager.instance.AddEvent("Reset", p =>
+        //{
+        //    transform.rotation = Quaternion.Euler(0, 0, 0);
+        //});
     }
 }

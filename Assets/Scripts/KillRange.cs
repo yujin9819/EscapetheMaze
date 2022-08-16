@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class KillRange : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other) // ÀâÇúÀ¸´Ï Á×´Â°ÅÀÓ
     {
-        Debug.Log("Àâ¾Ñ´Ù");
+        SceneManager.LoadScene("GameOver");
+        EventManager.instance.SendEvent("Reset");
     }
 }

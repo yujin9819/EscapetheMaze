@@ -24,12 +24,21 @@ public class PlayerController : MonoBehaviour
 
     float mouseX = 0;
 
-
+    public Transform respawnPos;
 
 
     private void Start()
     {
         characterController = GetComponent<CharacterController>();
+        Events();
+    }
+
+    private void Events()
+    {
+        EventManager.instance.AddEvent("Reset", p =>
+        {
+            transform.position = respawnPos.position;
+        });
     }
 
     private void Update()
@@ -73,6 +82,9 @@ public class PlayerController : MonoBehaviour
         {
             isWalking = false;
         }
+
+        EventManager.instance.SendEvent("Sound :: isWalking", isWalking);
+
         //if (originPos != transform.position)
         //{
         //    isWalking = true;

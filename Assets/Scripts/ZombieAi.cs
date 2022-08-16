@@ -29,8 +29,8 @@ public class ZombieAi : MonoBehaviour
     {
         while (!isFollowingPlayer)
         {
-            yield return new WaitForSeconds(5);
-            if (RandomPoint(target.transform.position, range, out point))
+            yield return new WaitForSeconds(3);
+            if (RandomPoint(transform.position, range, out point))
             {
                 target.transform.position = point;
             }
@@ -60,22 +60,20 @@ public class ZombieAi : MonoBehaviour
         {
             isFollowingPlayer = true;
             anim.SetBool("isFollowingPlayer", true);
-            nav.speed = 2f;
+            nav.speed = 2.5f;
             target.position = player.position;
             analogGlitch.scanLineJitter = .3f;
             analogGlitch.colorDrift = .1f;
-
         });
 
         EventManager.instance.AddEvent("PlayerOutZombieArea", p =>
         {
             isFollowingPlayer = false;
             anim.SetBool("isFollowingPlayer", false);
-            nav.speed = .5f;
+            nav.speed = 2f;
             EventManager.instance.SendEvent("EnabledCrossSfx");
             analogGlitch.scanLineJitter = 0f;
             analogGlitch.colorDrift = 0f;
-
         });
     }
 

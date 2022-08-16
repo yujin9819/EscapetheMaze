@@ -11,35 +11,57 @@ public class SoundPlayer : MonoBehaviour
         public string name;
         public AudioClip audio;
     }
+
     public BgmType[] BGMList;
 
     private AudioSource BGM;
+    private AudioSource SFX;
     private string NowBGMname = "";
 
-    static AudioSource effectSound;
+    public AudioSource walkSound;
+
     public AudioClip crossZombie;
 
     void Start()
     {
         BGM = gameObject.AddComponent<AudioSource>();
-        effectSound = GetComponent<AudioSource>();
+        SFX = gameObject.AddComponent<AudioSource>();
+        walkSound = GetComponent<AudioSource>();
 
         BGM.loop = true;
+        BGM.volume = .5f;
         if (BGMList.Length > 0) PlayBGM(BGMList[0].name);
-        EventManager.instance.AddEvent("PlayGoalBGM", p =>
-        {
-            PlayBGM((string)p);
-        });
-
         Events();
     }
 
     private void Events()
     {
+        //EventManager.instance.AddEvent("PlayBGM", p =>
+        //{
+        //    PlayBGM((string)p);
+        //});
+
         EventManager.instance.AddEvent("Sound :: CrossTheZombie", p =>
         {
-            effectSound.PlayOneShot(crossZombie);
+            SFX.PlayOneShot(crossZombie);
         });
+
+        EventManager.instance.AddEvent("Sound :: isWalk", p =>
+        {
+            if ((bool)p)
+            {
+                if (!walkSound.isPlaying)
+                {
+                    walkSound.Play();
+                }
+            }
+            else
+            {
+                walkSound.Stop();
+            }
+        });
+
+
     }
 
     public void PlayBGM(string name)
