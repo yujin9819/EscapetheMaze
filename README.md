@@ -18,4 +18,4 @@ ESC 누를 시 일시정지 기능, 환경설정에서 마우스 감도와 음�
 ![image](https://user-images.githubusercontent.com/97511714/186194958-d1a53615-cb71-484a-ad07-bbe20e800ad4.png)
 
 ## 플레이 영상
-[![Video Label](http://img.youtube.com/vi/'HRw9mLRxmuI'/0.jpg)](https://youtu.be/'HRw9mLRxmuI')
+[![Video Label](http://img.youtube.com/vi/HRw9mLRxmuI/0.jpg)](https://youtu.be/HRw9mLRxmuI)
