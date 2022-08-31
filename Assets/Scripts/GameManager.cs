@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        //Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
         Events();
@@ -46,7 +45,6 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Escape))
         {
-            //Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0;
             pauseUI.SetActive(true);

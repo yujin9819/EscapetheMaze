@@ -51,15 +51,6 @@ public class PlayerController : MonoBehaviour
         Movement();
         CameraRotate();
 
-
-        //if (Input.GetAxis("Vertical") != 0 && Input.GetAxis("Horizontal") != 0)
-        //{
-        //    isWalking = true; 
-        //}
-        //if (Input.GetAxis("Vertical") == 0 && Input.GetAxis("Horizontal") == 0)
-        //{
-        //    isWalking = false;
-        //}
         originPos = transform.position;
     }
 
@@ -88,48 +79,6 @@ public class PlayerController : MonoBehaviour
 
         EventManager.instance.SendEvent("Sound :: isWalking", isWalking);
 
-        //if (originPos != transform.position)
-        //{
-        //    isWalking = true;
-        //}
-        //if (originPos == transform.position)
-        //{
-        //    isWalking = false;
-        //}
         head.SetBool("isWalking", isWalking);
-        #region
-
-        //float xInput = Input.GetAxisRaw("Horizontal");
-
-        //if (isKeyPressed && Mathf.Abs(xInput) != 1)
-        //{
-        //    isKeyPressed = false;
-        //}
-        //if (!isKeyPressed && xInput != 0)
-        //{
-        //    isKeyPressed = true;
-        //    if (xInput > 0)
-        //    {
-        //        StartCoroutine(PlayerRotation(1));
-        //    }
-        //    if (xInput < 0)
-        //    {
-        //        StartCoroutine(PlayerRotation(-1));
-        //    }
-
-        //Vector3 movement = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
-        //characterController.Move(movement * Time.deltaTime * moveSpeed);
-        //head.SetBool("isWalking", movement.x != 0 || movement.z != 0);
-        //Vector3 rotation = new Vector3(0, Input.GetAxisRaw("Horizontal"), 0);
-        //transform.Rotate(rotation);
-        #endregion
-    }
-
-    IEnumerator PlayerRotation(float h)
-    {
-        angleY += 90 * h;
-        angleY %= 360;
-        transform.rotation = Quaternion.Euler(0, angleY, 0);
-        yield return null;
     }
 }

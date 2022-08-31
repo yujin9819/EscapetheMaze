@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class KillRange : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other) // ÀâÇúÀ¸´Ï Á×´Â°ÅÀÓ
+    private void OnTriggerEnter(Collider other) 
     {
         SceneManager.LoadScene("GameOver");
         EventManager.instance.SendEvent("Reset");

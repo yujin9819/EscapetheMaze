@@ -26,14 +26,12 @@ public class RayCast : MonoBehaviour
                         EventManager.instance.SendEvent("DoorOpen");
                         isDoorClosed = false;
                         gemUI.SetActive(true);
-                        //hitObj = null;
                     }
                 }
             }
             if (!hit.collider.CompareTag("Info"))
             {
                 txtInteract.text = "";
-                //hitObj = null;
             }
         }
     }
