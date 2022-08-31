@@ -12,9 +12,12 @@
 ![image](https://user-images.githubusercontent.com/97511714/186194666-17f5d02f-8c7d-47fb-8c42-b580017de8b7.png)
 ![image](https://user-images.githubusercontent.com/97511714/186193971-6591aec7-d8a3-466c-afb0-fb78f0a815f3.png)
 
-
-#### 3. Navigation 사용하여 좀비가 배회하는 구역 설정하였고, 일정 시간마다 구역 내 랜덤 좌표 생성하여 해당 좌표로 이동합니다.
+## 사용 유니티 기능
+#### 1. Navigation 사용하여 좀비가 배회하는 구역 설정하였고, 일정 시간마다 구역 내 랜덤 좌표 생성하여 해당 좌표로 이동합니다.
 ![image](https://user-images.githubusercontent.com/97511714/187598407-7fe6ff8b-b544-4dff-b671-510807eb5fc6.png)
+
+#### 2. 카메라에 Post-process 기능을 사용하고, lighting 설정을 변경하여 공포게임 특유의 어두운 분위기를 더해주었습니다.
+![image](https://user-images.githubusercontent.com/97511714/187615141-d3f107b6-0ec0-404e-804c-ea9aa8c7bac3.png)
 
 
 ## Image
