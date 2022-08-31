@@ -32,7 +32,5 @@ NavigationAgent 사용하여 좀비가 배회하는 구역 설정<br/><br/><br/>
 > [![Video Label](http://img.youtube.com/vi/XMdAZtNkj_I/0.jpg)](https://youtu.be/XMdAZtNkj_I)  
 
 ------
-- 유니티 버전  
-2020.3.16f1
-- 해상도  
-1280 * 720
+- 유니티 버전 - 2020.3.16f1
+- 해상도 - 1280 * 720
